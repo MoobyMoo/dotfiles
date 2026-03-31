@@ -1,0 +1,19 @@
+# Lazy lock file (regenerated per system)
+nvim/lazy-lock.json
+
+# LSP and runtime files
+nvim/.repro
+
+# Local state
+nvim/.netrwhist
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Tmux plugin manager
+tmux/plugins/
+tmux/resurrect/
+
+# Fish shell
+fish/fish_variables
