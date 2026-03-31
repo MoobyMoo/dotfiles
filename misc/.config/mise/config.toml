@@ -1,0 +1,4 @@
+[tools]
+duckdb = "latest"
+node = "25.8.0"
+glow = "latest"

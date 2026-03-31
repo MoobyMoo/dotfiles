@@ -1,0 +1,22 @@
+# Use the dynamically generated theme from omarchy
+theme = "theme"
+
+[font]
+name = "Noto Sans CJK TC"
+size = 12
+
+[plugin]
+prepend_fetchers = [
+	{ id = "ouch", name = "*.{tar,gz,bz2,xz,zip,7z,rar}", run = "ouch" },
+]
+prepend_previewers = [
+	{ name = "*.{tar,gz,bz2,xz,zip,7z,rar}", run = "ouch" },
+	{ name = "*.md", run = "glow" },
+	{ name = "*.{db,duckdb,parquet}", run = "duckdb" },
+]
+
+[manager]
+# Regenerate dynamic theme on startup
+on_startup = [
+	{ run = "bash ~/.config/yazi/update-theme.sh", desc = "Update yazi theme from omarchy" },
+]

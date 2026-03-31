@@ -32,3 +32,27 @@ omarchy/.config/omarchy/themed/
 
 # Alacritty/Kitty/Ghostty generated files
 */.cache/
+
+# Generated/temporary files
+misc/.config/uv/uv-receipt.json
+misc/.config/yazi/*.md
+misc/.config/yazi/*.tmTheme
+
+# Plugin repositories (git submodules/cloned repos)
+misc/.config/yazi-plugins/.git/
+misc/.config/yazi-plugins/.github/
+
+# LSP and cache directories
+*/nvim/.repro
+**/node_modules/
+**/.cache/
+**/__pycache__/
+
+# Editor backups
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+Thumbs.db

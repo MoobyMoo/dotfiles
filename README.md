@@ -8,6 +8,7 @@ My personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/)
 - **tmux** - Tmux configuration with seamless Neovim integration
 - **fish** - Fish shell configuration
 - **omarchy** - Omarchy/Hyprland desktop environment (Hyprland, Waybar, terminals, etc.)
+- **misc** - Additional tools and utilities (yazi, lazygit, btop, fastfetch, starship, etc.)
 
 ## Installation
 
@@ -40,6 +41,7 @@ stow nvim
 stow tmux
 stow fish
 stow omarchy
+stow misc
 
 # Or stow all packages at once
 stow */
@@ -75,6 +77,22 @@ stow */
 - **Walker** - App launcher configuration
 - **Mako** - Notification daemon configuration
 - Theme management and customizations
+
+### Miscellaneous Tools
+- **Yazi** - Terminal file manager configuration and plugins
+- **Lazygit** - Git client configuration
+- **Btop** - System monitor configuration
+- **Fastfetch** - System information display
+- **Git** - Git configuration
+- **GitHub CLI** - GitHub CLI configuration
+- **Starship** - Shell prompt configuration
+- **Mise** - Runtime version manager
+- **UV** - Python package manager
+- **Glow** - Markdown pager
+- **Imv** - Image viewer
+- **Nautilus** - File manager preferences
+- **Lazydocker** - Docker client configuration
+- **QAlculate** - Calculator configuration
 
 ## Usage
 
