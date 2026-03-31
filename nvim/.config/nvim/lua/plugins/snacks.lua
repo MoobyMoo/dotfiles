@@ -69,6 +69,9 @@ return {
     terminal = {
       enabled = true,
       shell = "fish",
+      cwd = function()
+        return vim.fn.expand("%:p:h")  -- Get current file's directory
+      end,
     },
     -- Zen mode
     zen = { enabled = true },
