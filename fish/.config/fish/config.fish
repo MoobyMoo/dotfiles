@@ -14,7 +14,6 @@ set -gx PATH $OMARCHY_PATH/bin:$PATH:$HOME/.local/bin
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
-  fastfetch
   starship init fish | source
 end
 
