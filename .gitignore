@@ -17,3 +17,18 @@ tmux/resurrect/
 
 # Fish shell
 fish/fish_variables
+
+# Omarchy
+# Don't track dynamically generated theme files
+omarchy/.config/omarchy/current/theme/preview.png
+omarchy/.config/omarchy/current/theme/*.rgb
+omarchy/.config/omarchy/current/theme/keyboard.rgb
+
+# Don't track sample hooks (we track the actual hooks)
+omarchy/.config/omarchy/hooks/*.sample
+
+# Don't track theme templates
+omarchy/.config/omarchy/themed/
+
+# Alacritty/Kitty/Ghostty generated files
+*/.cache/

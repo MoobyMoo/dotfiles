@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# This hook is called when the omarchy theme changes.
+# Regenerate starship config to match the new theme colors
+
+THEME_NAME=$1
+
+# Regenerate starship.toml with new theme colors
+if [ -f "$HOME/.config/omarchy/generate-starship.sh" ]; then
+  bash "$HOME/.config/omarchy/generate-starship.sh"
+fi
+
+# Example: Show the name of the theme that was just set.
+# notify-send "New theme" "Your new theme is $1"

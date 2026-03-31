@@ -7,6 +7,7 @@ My personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/)
 - **nvim** - Neovim configuration (LazyVim-based)
 - **tmux** - Tmux configuration with seamless Neovim integration
 - **fish** - Fish shell configuration
+- **omarchy** - Omarchy/Hyprland desktop environment (Hyprland, Waybar, terminals, etc.)
 
 ## Installation
 
@@ -38,6 +39,7 @@ cd ~/dotfiles
 stow nvim
 stow tmux
 stow fish
+stow omarchy
 
 # Or stow all packages at once
 stow */
@@ -47,6 +49,7 @@ stow */
    - **Neovim**: [lazy.nvim](https://github.com/folke/lazy.nvim) (auto-installs)
    - **Tmux**: [tpm](https://github.com/tmux-plugins/tpm)
    - **Fish**: Built-in plugin manager
+   - **Omarchy** (if on Arch Linux): Install [Omarchy](https://omarchy.org/) first
 
 ## Configuration Details
 
@@ -65,6 +68,14 @@ stow */
 - Custom aliases and functions
 - Starship prompt integration
 
+### Omarchy (Hyprland)
+- **Hyprland** - Wayland compositor with custom window rules, keybindings, and animations
+- **Waybar** - Custom status bar configuration
+- **Terminals** - Alacritty, Kitty, and Ghostty configurations
+- **Walker** - App launcher configuration
+- **Mako** - Notification daemon configuration
+- Theme management and customizations
+
 ## Usage
 
 After stowing, you can update these configs directly in `~/dotfiles` and they'll automatically reflect in your home directory via symlinks.
@@ -82,6 +93,7 @@ stow -D */    # Remove all packages
 - Neovim 0.9+
 - Tmux 3.0+
 - Fish shell 3.0+
+- **Omarchy** package (if using desktop environment configs): Requires Arch Linux with [Omarchy](https://omarchy.org/)
 
 ## Notes
 
