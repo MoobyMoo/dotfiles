@@ -14,6 +14,10 @@ set -gx PATH $OMARCHY_PATH/bin:$PATH:$HOME/.local/bin
 
 if status is-interactive
   # Commands to run in interactive sessions can go here
+  # Only run fastfetch if not inside Neovim terminal
+  if not set -q NVIM
+    fastfetch
+  end
   starship init fish | source
 end
 
