@@ -66,7 +66,10 @@ return {
     -- Git signs
     gitbrowse = { enabled = true },
     -- Terminal
-    terminal = { enabled = true },
+    terminal = {
+      enabled = true,
+      shell = "fish",
+    },
     -- Zen mode
     zen = { enabled = true },
     -- Lazygit
