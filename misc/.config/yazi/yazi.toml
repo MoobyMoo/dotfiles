@@ -20,3 +20,9 @@ prepend_previewers = [
 on_startup = [
 	{ run = "bash ~/.config/yazi/update-theme.sh", desc = "Update yazi theme from omarchy" },
 ]
+# Disable preview pane
+show_hidden = false
+
+[preview]
+# Disable right preview panel
+enabled = false

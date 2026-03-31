@@ -1,24 +1,31 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
-format = """
-$directory\
-$git_branch\
-$git_status\
-[ ](fg:blue)\
-$character"""
-
-[directory]
-truncation_length = 3
-truncate_to_repo = true
-
-[git_branch]
-format = "[$symbol$branch]($style) "
-style = "bold purple"
-
-[git_status]
-format = "([$all_status$ahead_behind]($style) )"
-style = "bold red"
+add_newline = true
+command_timeout = 200
+format = "[$directory$git_branch$git_status]($style)$character"
 
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+error_symbol = "[✗](bold #bf616a)"
+success_symbol = "[❯](bold #81a1c1)"
+
+[directory]
+truncation_length = 0
+truncation_symbol = ""
+format = "[$path]($style) "
+
+[git_branch]
+format = "[$branch]($style) "
+style = "italic #b48ead"
+
+[git_status]
+format     = '[$all_status]($style)'
+style      = "#88c0d0"
+ahead      = "⇡${count} "
+diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
+behind     = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked  = "? "
+modified   = " "
+stashed    = ""
+staged     = ""
+renamed    = ""
+deleted    = ""
