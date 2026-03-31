@@ -14,7 +14,10 @@ return {
     { "<leader>?", function() Snacks.picker.help() end, desc = "Help" },
     { "<leader>:", function() Snacks.picker.commands() end, desc = "Commands" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<C-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<C-/>", function() 
+      local cwd = vim.fn.expand("%:p:h")  -- Get current file's directory
+      Snacks.terminal(nil, { cwd = cwd })
+    end, desc = "Toggle Terminal" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notifications" },
     { "<leader>z", function() Snacks.zen() end, desc = "Zen Mode" },
     { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Zoom" },
@@ -69,9 +72,6 @@ return {
     terminal = {
       enabled = true,
       shell = "fish",
-      cwd = function()
-        return vim.fn.expand("%:p:h")  -- Get current file's directory
-      end,
     },
     -- Zen mode
     zen = { enabled = true },
