@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTPUT_FILE="${HOME}/.config/opencode/logs/calendar-sync-latest.md"
+mkdir -p "$(dirname "${OUTPUT_FILE}")"
+
+SYNC_OUTPUT="$(fish -c 'source ~/.config/fish/config.fish; opencode run --command sync-deadlines-to-calendar --dir /home/moo --agent personal-admin --format default -- $argv' -- "${*:-automatic calendar sync}")"
+
+printf '%s\n' "${SYNC_OUTPUT}" > "${OUTPUT_FILE}"
+printf 'Calendar sync written to %s\n' "${OUTPUT_FILE}"

@@ -9,6 +9,8 @@ My personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/)
 - **fish** - Fish shell configuration
 - **omarchy** - Omarchy/Hyprland desktop environment (Hyprland, Waybar, terminals, etc.)
 - **misc** - Additional tools and utilities (yazi, lazygit, btop, fastfetch, starship, etc.)
+- **opencode** - Portable OpenCode personal-assistant runtime configuration and Linux timers
+- **opencode-vault** - Durable OpenCode vault content in `~/Documents/OpenCode-Vault`
 
 ## Installation
 
@@ -42,6 +44,8 @@ stow tmux
 stow fish
 stow omarchy
 stow misc
+stow opencode
+stow opencode-vault
 
 # Or stow all packages at once
 stow */
@@ -112,10 +116,11 @@ stow -D */    # Remove all packages
 - Tmux 3.0+
 - Fish shell 3.0+
 - **Omarchy** package (if using desktop environment configs): Requires Arch Linux with [Omarchy](https://omarchy.org/)
+- **OpenCode automation timers**: Linux-only (`systemd --user`)
 
 ## Notes
 
 - The `lazy-lock.json` file is gitignored and regenerated per system
 - Tmux plugins are managed by tpm and not included in the repo
 - Some theme/appearance settings may depend on system-specific configuration
-
+- Machine-local secrets/session state for OpenCode are intentionally not tracked in git

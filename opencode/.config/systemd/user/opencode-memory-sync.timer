@@ -1,0 +1,10 @@
+[Unit]
+Description=Run OpenCode automatic memory sync every night
+
+[Timer]
+OnCalendar=*-*-* 21:30:00
+Persistent=true
+Unit=opencode-memory-sync.service
+
+[Install]
+WantedBy=timers.target

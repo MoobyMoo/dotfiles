@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+fish -c 'source ~/.config/fish/config.fish; opencode run --command sync-student-vault --dir /home/moo --agent personal-admin --format default -- $argv' -- "${*:-automated student vault sync}" >/dev/null
+
+printf 'Student vault sync completed\n'

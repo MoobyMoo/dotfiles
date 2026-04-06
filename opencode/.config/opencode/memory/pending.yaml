@@ -1,0 +1,25 @@
+version: 1
+last_updated: 2026-04-06T18:29:11+08:00
+candidates:
+  - id: mem-pending-001
+    type: operational
+    statement: Deadline tracking is currently under-maintained across calendar, tasks, and notes and may need a reset.
+    source: automation_review
+    confidence: medium-high
+    sensitivity: low
+    evidence: deadline-radar-latest reports no academic calendar events, empty Google Tasks, and thin Obsidian tracking; TODAY.md prioritizes building a 14-day deadline map.
+    queued_at: 2026-04-06T18:29:11+08:00
+    expires_at: 2026-04-20T00:00:00+08:00
+
+  - id: mem-pending-002
+    type: operational
+    statement: Near-term academic focus may be Algorithms, Intro AI, and Microelectronics or Semiconductor Engineering.
+    source: automation_review
+    confidence: medium
+    sensitivity: low
+    evidence: deadline-radar-latest frames these as best-guess priorities and watch items.
+    queued_at: 2026-04-06T18:29:11+08:00
+    expires_at: 2026-04-13T00:00:00+08:00
+
+# Add new memory candidates here only after they are explicitly proposed.
+# Move approved items into approved.yaml and rejected items into review-log.md.

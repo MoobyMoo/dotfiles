@@ -1,0 +1,146 @@
+version: 1
+last_updated: 2026-04-06T18:29:11+08:00
+records:
+  - id: mem-approved-001
+    type: profile
+    statement: The user is an EE/CS student at NYCU EE.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: 2028-06-30T00:00:00+08:00
+
+  - id: mem-approved-002
+    type: profile
+    statement: The user's timezone is Taiwan/Taipei.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-003
+    type: profile
+    statement: The user prefers detailed, structured answers with a strong recommendation by default.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-004
+    type: profile
+    statement: The user responds best to direct reminders and a firm-coach tone when needed.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-005
+    type: profile
+    statement: The user works best in long deep-work sessions with structured checklists.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-006
+    type: profile
+    statement: The user wants both weekly direction and daily execution support, with early-morning daily briefings.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-007
+    type: profile
+    statement: The user prefers minimizing meetings and does not need meeting buffer by default.
+    source: conversation
+    confidence: medium
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: 2026-10-06T00:00:00+08:00
+
+  - id: mem-approved-008
+    type: operational
+    statement: The user's major priorities are academic performance, career growth, life organization, and health and energy.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: 2027-04-06T00:00:00+08:00
+
+  - id: mem-approved-009
+    type: profile
+    statement: The user's common failure modes include deadline pileups, hard starts, information overload, context switching, sleep drift, fragmentation, overplanning, and avoidance.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: 2026-10-06T00:00:00+08:00
+
+  - id: mem-approved-010
+    type: profile
+    statement: Google Keep should be used as the temporary capture inbox.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-011
+    type: profile
+    statement: Obsidian should be used as the durable knowledge base, class-notes system, project hub, and life dashboard.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-012
+    type: profile
+    statement: The current task system is Google Tasks.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: 2026-10-06T00:00:00+08:00
+
+  - id: mem-approved-013
+    type: operational
+    statement: The current preferred personal-admin stack is Gmail, Google Calendar, Google Drive, Google Tasks, Google Keep, and Obsidian.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-014
+    type: profile
+    statement: Persistent memory should run in propose-then-approve mode.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-015
+    type: profile
+    statement: Email sending always requires explicit approval.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-016
+    type: profile
+    statement: Calendar edits are allowed at the current policy level.
+    source: conversation
+    confidence: high
+    last_verified_at: 2026-04-06T00:00:00+08:00
+    expires_at: null
+
+  - id: mem-approved-017
+    type: operational
+    statement: The current active courses are Signals and Systems, Algorithms, Intro AI, Computer Organization, Microelectronics, and Semiconductor Engineering.
+    source: automation_review
+    confidence: high
+    last_verified_at: 2026-04-06T18:29:11+08:00
+    expires_at: 2026-07-01T00:00:00+08:00
+
+  - id: mem-approved-018
+    type: operational
+    statement: "Google Workspace has two connected accounts: personal and school."
+    source: automation_review
+    confidence: high
+    last_verified_at: 2026-04-06T18:59:30+08:00
+    expires_at: null

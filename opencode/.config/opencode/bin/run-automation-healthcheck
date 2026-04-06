@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTPUT_DIR="${HOME}/.config/opencode/logs"
+OUTPUT_FILE="${OUTPUT_DIR}/automation-healthcheck-latest.md"
+mkdir -p "${OUTPUT_DIR}"
+
+HOST_TIME="$(date --iso-8601=seconds)"
+TIMER_STATUS="$(systemctl --user list-timers --all | rg 'opencode-' || true)"
+MCP_STATUS="$(opencode mcp list || true)"
+
+REPORT=$'## Automation Healthcheck\n'
+REPORT+="- Host time: ${HOST_TIME}\n"
+REPORT+=$'\n## Timers\n'
+if [[ -n "${TIMER_STATUS}" ]]; then
+  REPORT+="${TIMER_STATUS}\n"
+else
+  REPORT+=$'No OpenCode timers found.\n'
+fi
+
+REPORT+=$'\n## MCP Status\n'
+REPORT+="${MCP_STATUS}\n"
+
+printf '%b' "${REPORT}" > "${OUTPUT_FILE}"
+
+if fish -c 'source ~/.config/fish/config.fish; test -n "$TELEGRAM_BOT_TOKEN"; and test -n "$TELEGRAM_CHAT_ID"'; then
+  CLEAN_OUTPUT="$(printf '%b' "${REPORT}" | perl -pe 's/\e\[[0-9;]*m//g')"
+  fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/send-telegram "$argv[1]"' -- "${CLEAN_OUTPUT}"
+fi
+
+printf 'Automation healthcheck written to %s\n' "${OUTPUT_FILE}"

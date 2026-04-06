@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenCode school signal monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/moo/.config/opencode/bin/run-school-signal-monitor automated school signal monitor
+WorkingDirectory=/home/moo
+
+[Install]
+WantedBy=default.target

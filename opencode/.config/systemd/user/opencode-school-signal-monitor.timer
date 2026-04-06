@@ -1,0 +1,10 @@
+[Unit]
+Description=Run OpenCode school signal monitor every 2 hours
+
+[Timer]
+OnCalendar=*-*-* 08,10,12,14,16,18,20:00:00
+Persistent=true
+Unit=opencode-school-signal-monitor.service
+
+[Install]
+WantedBy=timers.target

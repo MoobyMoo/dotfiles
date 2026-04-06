@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTPUT_FILE="${HOME}/.config/opencode/logs/deadline-radar-latest.md"
+mkdir -p "$(dirname "${OUTPUT_FILE}")"
+
+PROMPT="${*:-automated deadline radar}"
+
+fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/run-sync-student-vault pre-radar sync' >/dev/null
+fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/run-sync-deadlines-to-calendar pre-radar calendar sync' >/dev/null
+
+RADAR_OUTPUT="$(fish -c 'source ~/.config/fish/config.fish; opencode run --command deadline-radar --dir /home/moo --agent personal-admin --format default -- $argv' -- "${PROMPT}")"
+
+printf '%s\n' "${RADAR_OUTPUT}" > "${OUTPUT_FILE}"
+
+fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/run-auto-memory-sync post-radar sync' >/dev/null
+
+if fish -c 'source ~/.config/fish/config.fish; test -n "$TELEGRAM_BOT_TOKEN"; and test -n "$TELEGRAM_CHAT_ID"'; then
+  CLEAN_OUTPUT="$(printf '%s\n' "${RADAR_OUTPUT}" | perl -pe 's/\e\[[0-9;]*m//g')"
+  fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/send-telegram "$argv[1]"' -- "${CLEAN_OUTPUT}"
+fi
+
+printf 'Deadline radar written to %s\n' "${OUTPUT_FILE}"

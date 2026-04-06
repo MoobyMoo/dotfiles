@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenCode automated student briefing
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/moo/.config/opencode/bin/run-student-brief automated morning briefing
+WorkingDirectory=/home/moo
+
+[Install]
+WantedBy=default.target

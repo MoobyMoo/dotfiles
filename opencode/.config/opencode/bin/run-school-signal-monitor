@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTPUT_DIR="${HOME}/.config/opencode/logs"
+OUTPUT_FILE="${OUTPUT_DIR}/school-signal-monitor-latest.md"
+LAST_SENT_FILE="${OUTPUT_DIR}/school-signal-monitor-last-sent.txt"
+mkdir -p "${OUTPUT_DIR}"
+
+PROMPT="${*:-automated school signal monitor}"
+
+MONITOR_OUTPUT="$(fish -c 'source ~/.config/fish/config.fish; opencode run --command school-signal-monitor --dir /home/moo --agent personal-admin --format default -- $argv' -- "${PROMPT}")"
+
+printf '%s\n' "${MONITOR_OUTPUT}" > "${OUTPUT_FILE}"
+
+CLEAN_OUTPUT="$(printf '%s\n' "${MONITOR_OUTPUT}" | perl -pe 's/\e\[[0-9;]*m//g')"
+
+if [[ "${CLEAN_OUTPUT}" == *"NO_IMPORTANT_UPDATES"* ]]; then
+  printf 'No important school updates\n'
+  exit 0
+fi
+
+CURRENT_HASH="$(printf '%s' "${CLEAN_OUTPUT}" | sha256sum | cut -d' ' -f1)"
+LAST_HASH=""
+if [[ -f "${LAST_SENT_FILE}" ]]; then
+  LAST_HASH="$(<"${LAST_SENT_FILE}")"
+fi
+
+if [[ "${CURRENT_HASH}" == "${LAST_HASH}" ]]; then
+  printf 'School alerts unchanged; not sending duplicate notification\n'
+  exit 0
+fi
+
+if fish -c 'source ~/.config/fish/config.fish; test -n "$TELEGRAM_BOT_TOKEN"; and test -n "$TELEGRAM_CHAT_ID"'; then
+  fish -c 'source ~/.config/fish/config.fish; ~/.config/opencode/bin/send-telegram "$argv[1]"' -- "${CLEAN_OUTPUT}"
+  printf '%s\n' "${CURRENT_HASH}" > "${LAST_SENT_FILE}"
+  printf 'School alert sent to Telegram\n'
+else
+  printf 'Telegram not configured; school alert not sent\n'
+fi

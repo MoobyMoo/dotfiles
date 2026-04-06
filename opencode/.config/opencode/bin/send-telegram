@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-}"
+CHAT_ID="${TELEGRAM_CHAT_ID:-}"
+
+if [[ -z "${BOT_TOKEN}" ]]; then
+  >&2 printf 'Missing TELEGRAM_BOT_TOKEN\n'
+  exit 1
+fi
+
+if [[ -z "${CHAT_ID}" ]]; then
+  >&2 printf 'Missing TELEGRAM_CHAT_ID\n'
+  exit 1
+fi
+
+if [[ $# -eq 0 ]]; then
+  >&2 printf 'Usage: send-telegram "message"\n'
+  exit 1
+fi
+
+MESSAGE="$*"
+
+curl -fsS -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+  --data-urlencode "chat_id=${CHAT_ID}" \
+  --data-urlencode "text=${MESSAGE}" \
+  --data-urlencode "disable_web_page_preview=true" >/dev/null
+
+printf 'Telegram message sent\n'

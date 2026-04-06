@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-}"
+CHAT_ID="${TELEGRAM_CHAT_ID:-}"
+
+if [[ -z "${BOT_TOKEN}" ]]; then
+  printf 'TELEGRAM_BOT_TOKEN: missing\n'
+else
+  printf 'TELEGRAM_BOT_TOKEN: set\n'
+fi
+
+if [[ -z "${CHAT_ID}" ]]; then
+  printf 'TELEGRAM_CHAT_ID: missing\n'
+else
+  printf 'TELEGRAM_CHAT_ID: set\n'
+fi
+
+if [[ -n "${BOT_TOKEN}" ]]; then
+  curl -fsS "https://api.telegram.org/bot${BOT_TOKEN}/getMe" >/dev/null && printf 'Bot token: valid\n' || printf 'Bot token: invalid or unreachable\n'
+fi

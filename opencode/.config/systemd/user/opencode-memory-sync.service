@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenCode automatic memory sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/moo/.config/opencode/bin/run-auto-memory-sync nightly automatic memory sync
+WorkingDirectory=/home/moo
+
+[Install]
+WantedBy=default.target

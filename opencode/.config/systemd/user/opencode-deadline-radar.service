@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenCode automated deadline radar
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/moo/.config/opencode/bin/run-deadline-radar automated deadline radar
+WorkingDirectory=/home/moo
+
+[Install]
+WantedBy=default.target

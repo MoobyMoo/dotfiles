@@ -1,0 +1,10 @@
+[Unit]
+Description=Run OpenCode deadline radar every afternoon
+
+[Timer]
+OnCalendar=*-*-* 15:00:00
+Persistent=true
+Unit=opencode-deadline-radar.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROFILE_DIR="${HOME}/.config/opencode/browser-profile"
+mkdir -p "${PROFILE_DIR}"
+
+exec npx -y @playwright/mcp \
+  --browser chrome \
+  --executable-path /usr/bin/chromium \
+  --user-data-dir "${PROFILE_DIR}" \
+  --save-session

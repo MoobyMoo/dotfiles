@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTPUT_FILE="${HOME}/.config/opencode/logs/memory-sync-latest.md"
+mkdir -p "$(dirname "${OUTPUT_FILE}")"
+
+SYNC_OUTPUT="$(fish -c 'source ~/.config/fish/config.fish; opencode run --command auto-memory-sync --dir /home/moo --agent personal-admin --format default -- $argv' -- "${*:-automated memory sync}")"
+
+printf '%s\n' "${SYNC_OUTPUT}" > "${OUTPUT_FILE}"
+
+printf 'Memory sync written to %s\n' "${OUTPUT_FILE}"

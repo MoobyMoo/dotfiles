@@ -1,0 +1,10 @@
+[Unit]
+Description=Run OpenCode student briefing every morning
+
+[Timer]
+OnCalendar=*-*-* 07:30:00
+Persistent=true
+Unit=opencode-student-brief.service
+
+[Install]
+WantedBy=timers.target
