@@ -1,0 +1,30 @@
+# Obsidian
+.obsidian/
+.DS_Store
+.vscode/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# System files
+Thumbs.db
+desktop.ini
+
+# Node (if using any npm packages)
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# IDE
+.idea/
+*.iml
